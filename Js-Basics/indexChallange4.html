@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* MY SOLUTION
+/////////////////////////
+*************************
+/////////////////////////
+*/
+
+
+        var john = {
+            name: 'John',
+            mass: '80',
+            height: '1.7',
+            calcBmi: function () {
+                this.johnBmi = this.mass / (this.height * this.height); //this -- current object
+            }
+        }
+        var mike = {
+            name: 'Mike',
+            mass: '80',
+            height: '1.9',
+            calcBmi: function () {
+                this.mikeBmi = this.mass / (this.height * this.height);
+            }
+        }
+        var brain = {
+            name: 'Brain',
+            mass: '60',
+            height: '1.7',
+            calcBmi: function () {
+                this.brainBmi = this.mass / (this.height * this.height);
+            }
+        }
+
+        john.calcBmi();
+        console.log(john);
+        mike.calcBmi();
+        console.log(mike);
+        brain.calcBmi();
+        console.log(brain);
+
+        if (john.johnBmi > mike.mikeBmi && brain.brainBmi) {
+            console.log(john.name + " " + john.mass + "kg " + john.height + "m " + john.johnBmi + " BMI");
+        } else if (mike.johnBmi > john.mikeBmi && brain.brainBmi) {
+            console.log(mike.name + " " + mike.mass + "kg " + mike.height + "m " + mike.mikeBmi + " BMI");
+        } else if (brain.johnBmi > john.mikeBmi && mike.brainBmi) {
+            console.log(brain.name + " " + brain.mass + "kg " + brain.height + "m " + brain.brainBmi + " BMI");
+        }
+
+        // "  m"
+        // var johnFullBmiResult = john.johnBmi;
+        // var mikeFullBmiResult = mike.johnBmi;
+        // var brainFullBmiResult = brain.johnBmi;
+        // console.log(johnFullBmiResult);
+
+
+        // if (johnFullBmiResult > mikeFullBmiResult && brainFullBmiResult) {
+        //     console.log(john.name + " " + john.mass + " " + john.height + " " + johnFullBmiResult);
+        // } else if (mikeFullBmiResult > johnFullBmiResult && brainFullBmiResult) {
+        //     console.log(mike.name + " " + mike.mass + " " + mike.height + " " + mikeFullBmiResult);
+        // } else if (brainFullBmiResult > johnFullBmiResult && mikeFullBmiResult) {
+        //     console.log(brain.name + " " + brain.mass + " " + brain.height + " " + brainFullBmiResult);
+        // }
+
+
+
+    </script>
+</body>
+
+</html>
