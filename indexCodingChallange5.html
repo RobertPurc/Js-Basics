@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    // var johnTrip = {
+    //     restaurants: [],
+    //     firstRestaurant: [124],
+    //     secondRestaurant: [48],
+    //     thirdRestaurant: [268],
+    //     fourthRestaurant: [180],
+    //     fifthRestaurant: [42],
+
+    //     calcSum: function tipCalculator(firstRestaurant) {
+    //         var precentage;
+    //         if (firstRestaurant < 50) {
+    //             precentage = .2;
+    //         } else if (firstRestaurant >= 50 && firstRestaurant < 200) {
+    //             precentage = .15;
+    //         } else {
+    //             precentage = .1;
+    //         }
+    //         return precentage * firstRestaurant;
+    //     },
+    //     // 
+    // }
+
+    // console.log(johnTrip);
+
+
+    var johnTrip = {
+        name: 'John Smith',
+        bills: [124, 48, 268, 180, 42],
+    }
+
+
+    var mark = {
+        name: 'Mark Smith',
+        bills: [77, 448, 110, 45],
+        calcSum: function () {
+            this.tips = [];
+            this.finalValue = [];
+            //doing tast when the length of array is higher than declared i 
+            for (var i = 0; i < this.bills.length; i++) {
+                //calc procentage
+                var percentage;
+
+                var bill = this.bills[i]; //storing number of bill
+
+                if (bill < 100) {
+                    percentage = .2;
+                } else if (bill >= 100 && bill < 300) {
+                    percentage = .1;
+                } else {
+                    percentage = .25;
+                }
+                // return percentage * bill;
+
+                this.tips[i] = bill * percentage;
+                this.finalValue[i] = bill + bill * percentage;
+
+                // funal caclc
+
+
+            }
+        }
+    }
+
+    function calcAverage(tips) {
+
+        var sum = 0;
+
+        for (var i = 0; i < tips.length; i++) {
+            sum = sum + tips[i]; //example tips [2,6,12] 0+2 = 2 /next iteration/ 2(sum) + (next element)6 = 8...
+        }
+        return sum / tips.length;
+    };
+
+
+    function caclTips() {
+        johnTrip.tips = [];
+        johnTrip.finalValue = [];
+        //doing tast when the length of array is higher than declared i 
+        for (var i = 0; i < johnTrip.bills.length; i++) {
+            //calc procentage
+            var percentage;
+
+            var bill = johnTrip.bills[i]; //storing number of bill
+
+            if (bill < 50) {
+                percentage = .2;
+            } else if (bill >= 50 && bill < 200) {
+                percentage = .15;
+            } else {
+                percentage = .1;
+            }
+            // return percentage * bill;
+
+            johnTrip.tips[i] = bill * percentage;
+            johnTrip.finalValue[i] = bill + bill * percentage;
+        }
+    };
+
+
+
+    // johnTrip.calcSum();
+    console.log(johnTrip);
+    console.log(mark);
+    mark.calcSum();
+    johnTrip.calculatingTips = caclTips(johnTrip.bills);
+    // mark.calculatingTips = caclTips(mark.bills);
+    johnTrip.average = calcAverage(johnTrip.tips); //usnig this function on tips from object 'johnTrips'
+    mark.average = calcAverage(mark.tips);
+
+    if (johnTrip.average > mark.average) {
+        console.log('john pays more money!' + johnTrip.average)
+
+    } else if (mark.average > johnTrip.average) {
+        console.log('mark pays more money!' + mark.average)
+
+    } else {
+        console.log('mark and john have equal tips')
+    };
+</script>
+
+</html>
