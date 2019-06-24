@@ -8,11 +8,11 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 
 */
-var scores, roundScore, activePlayer, dice;
+var scores, roundScore, activePlayer, dice, winScore;
 var gamePlaying = true;
 
 
-
+chooseWinningScore();
 newGame();
 
 
@@ -21,6 +21,7 @@ newGame();
 
 // document.querySelector('#current-' + activePlayer).textContent = dice; //searching only first same element
 // document.querySelector('#current' + activePlayer).textContent = '<em>' + dice + '</em>';
+
 
 
 
@@ -62,7 +63,7 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
         document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
         // chceck if player won the game
-        if (scores[activePlayer] >= 100) {
+        if (scores[activePlayer] >= winScore) {
             document.getElementById('name-' + activePlayer).textContent = 'Winner';
             document.querySelector('.dice').style.display = 'none';
             document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
@@ -106,4 +107,43 @@ function newGame() {
     document.querySelector('.player-0-panel').classList.remove('active');
     document.querySelector('.player-1-panel').classList.remove('active');
     document.querySelector('.player-0-panel').classList.add('active');
+}
+
+function chooseWinningScore() {
+    var twoHundred = document.getElementById('btn-twoHundred');
+    var oneHundred = document.getElementById('btn-oneHundred');
+    var fifty = document.getElementById('btn-fifty');
+    var twenty = document.getElementById('btn-twenty');
+
+    if (gamePlaying === true) {
+        twoHundred.addEventListener('click', function () {
+            winScore = 200;
+            twoHundred.classList.toggle('btn-selected');
+            oneHundred.classList.remove('btn-selected');
+            fifty.classList.remove('btn-selected');
+            twenty.classList.remove('btn-selected');
+        });
+        oneHundred.addEventListener('click', function () {
+            winScore = 100;
+            oneHundred.classList.toggle('btn-selected');
+            twoHundred.classList.remove('btn-selected');
+            fifty.classList.remove('btn-selected');
+            twenty.classList.remove('btn-selected');
+        });
+        fifty.addEventListener('click', function () {
+            winScore = 50;
+            fifty.classList.toggle('btn-selected');
+            oneHundred.classList.remove('btn-selected');
+            twoHundred.classList.remove('btn-selected');
+            twenty.classList.remove('btn-selected');
+        });
+        twenty.addEventListener('click', function () {
+            winScore = 20;
+            twenty.classList.toggle('btn-selected');
+            oneHundred.classList.remove('btn-selected');
+            fifty.classList.remove('btn-selected');
+            twoHundred.classList.remove('btn-selected');
+        });
+
+    }
 }
