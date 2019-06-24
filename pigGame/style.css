@@ -198,7 +198,7 @@ i {
 }
 
 .score-box:hover {
-    transform: skew(-5deg, -1deg) scale(1.05);
+    transform: skew(0deg, -1deg) scale(1.02);
     /* font-size: ; */
 }
 
@@ -218,15 +218,18 @@ i {
     width: 100px;
     display: block;
     height: 30px;
-    background: linear-gradient(to left top, #ff416c, rgb(255, 75, 43));
+    background: linear-gradient(to left top, rgb(255, 65, 108), #ff4b2b);
     font-size: 18px;
     border: none;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     color: #fff;
     font-weight: bold;
     font-style: italic;
     cursor: pointer;
     transition: all .3s;
+    box-shadow: 0px 5px 15px 0px #bbb;
+    position: relative;
+
     /* clear: none;
      */
     /* float: left; */
@@ -234,10 +237,39 @@ i {
 
 .btn:hover {
     transform: scale(1.03);
-    box-shadow: 0px 5px 15px 0px #ccc;
+    box-shadow: 0px 5px 15px 0px #aaa;
 }
 
 .btn-selected {
-    box-shadow: 0px 4px 15px 3px rgba(85, 85, 85, 0.6);
+    /* box-sizing: content-box; */
+    /* box-shadow: 0px 5px 15px 2px #999; */
+    /* transform: translateY(-5px); */
+    /* margin-bottom: 5px; */
+    /* border-bottom: orangered solid 3px; */
+    /* position: absolute; */
+    /* border-bottom: orangered solid 3px; */
+    /* bottom: -10px; */
 
+}
+
+.btn-selected:after {
+    content: "";
+    /* display: block; */
+    position: absolute;
+    left: 0;
+    /* width: 100%; */
+    border-bottom: orangered solid 3px;
+    bottom: -7px;
+    animation: btnAnimation .3s ease-out forwards;
+}
+
+@keyframes btnAnimation {
+
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%
+    }
 }
