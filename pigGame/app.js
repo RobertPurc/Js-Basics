@@ -10,6 +10,7 @@ GAME RULES:
 */
 var scores, roundScore, activePlayer, dice, winScore;
 var gamePlaying = true;
+var lastDice;
 
 
 chooseWinningScore();
@@ -40,7 +41,16 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
         diceDom.src = 'dice-' + dice + '.png'; //number od dice = number of png file
 
         //3. Update the round score if the rolled number was not a 1
-        if (dice !== 1) {
+
+        if (dice === 6 && lastDice === 6) {
+
+            //double six = lose score
+            scores[activePlayer] = 0;
+            document.querySelector('#score-' + activePlayer).textContent = '0';
+            nextPlayer();
+
+
+        } else if (dice !== 1) {
 
             //add score
             roundScore += dice; // roundScore = roundScore + dice
@@ -50,6 +60,7 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
             //next player
             nextPlayer();
         }
+        lastDice = dice;
     }
 });
 

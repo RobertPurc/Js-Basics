@@ -198,7 +198,7 @@ i {
 }
 
 .score-box:hover {
-    transform: skew(0deg, -1deg) scale(1.02);
+    transform: scale(1.02);
     /* font-size: ; */
 }
 
